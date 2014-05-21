@@ -24,6 +24,15 @@ def find_positions
   positions = positions.uniq
 end
 
+def make_subset_array(key, subset_type)
+  subset_array = []
+  player_data = get_player_data
+  player_data.each do |player|
+    subset_array << player if player[key] == subset_type
+  end
+  subset_array
+end
+
 get "/" do
   @teams = find_teams
   erb :teams 
@@ -41,22 +50,14 @@ end
 
 get "/teams/:team_name" do
   @team_name = params[:team_name]
-  @team_subset_array = []
-  player_data = get_player_data
-  player_data.each do |player|
-    @team_subset_array << player if player[:team] == @team_name
-  end
+  @team_subset_array = make_subset_array(:team, @team_name)
   @teams = find_teams
   erb :players_by_team 
 end
 
 get "/positions/:position_name" do
   @position_name = params[:position_name]
-  @position_subset_array = []
-  player_data = get_player_data
-  player_data.each do |player|
-    @position_subset_array << player if player[:position] == @position_name
-  end
+  @position_subset_array = make_subset_array(:position, @position_name)
   @positions = find_positions
   erb :players_by_position 
 end

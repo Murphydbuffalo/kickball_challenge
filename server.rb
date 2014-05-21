@@ -104,33 +104,3 @@ end
 
 
 
-
-# require "sinatra"
-# require "CSV"
-# require 'pry'
-
-# get "/" do
-#   erb :index
-# end
-
-# get "/teams" do
-# 	erb :index
-# end
-
-# get "/positions" do
-# 	erb :positions
-# end
-
-# get "/teams/:team_name" do
-#   team_name = params[:team_name]
-#   @team = []
-#   CSV.foreach('./lackp_starting_rosters.csv', headers: true, header_converters: :symbol) do |row|   
-#     @team << row.to_hash if row[:team].downcase == team_name
-#   end
-#   binding.pry
-#   erb :teams
-# end
-
-# get "/positions/:position_name" do
-
-# end

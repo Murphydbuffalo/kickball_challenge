@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+  <h1><%= @position_name %></h1>
+  <ul>
+    <% @position_subset_array.each do |position| %>
+    <li><%= "#{position[:first_name]} #{position[:last_name]} :  #{position[:team]} " %></li>
+    <%end%>
+  </ul>
+  </body>
+</html>

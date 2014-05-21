@@ -4,7 +4,7 @@
   <h1><%= @team_name %></h1>
   <ul>
     <% @team_subset_array.each do |player| %>
-    <li><%= "#{player[:first_name]} #{player[:last_name]} :  #{player[:position]} " %></li>
+    <li><%="#{player[:first_name]} #{player[:last_name]} :  #{player[:position]}"%></li>
     <%end%>
   </ul>
   </body>

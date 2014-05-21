@@ -2,7 +2,6 @@ require "sinatra"
 require "csv"
 require "pry"
 
-
 def get_player_data
   players = []
   CSV.foreach("./lackp_starting_rosters.csv", headers: true, header_converters: :symbol) do |row|
